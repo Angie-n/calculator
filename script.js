@@ -15,6 +15,10 @@ function divide(n1, n2) {
     return n1/n2;
 }
 
+function calcExponent(n1,n2) {
+    return Math.pow(n1, n2);
+}
+
 function operate(op, n1, n2) {
     switch(op) {
         case "+":
@@ -25,5 +29,7 @@ function operate(op, n1, n2) {
         return multiply(n1,n2);
         case "/":
         return divide(n1,n2);
+        case "^":
+        return calcExponent(n1,n2)
     }
 }
