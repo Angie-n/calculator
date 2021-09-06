@@ -1,22 +1,33 @@
+let answer;
+
 function add(n1, n2) {
-    return n1 + n2;
+    answer = roundAnswer(n1 + n2);
+    return answer;
 }
 
 function subtract(n1, n2) {
-    return n1 - n2;
+    answer = roundAnswer(n1 - n2);
+    return answer;
 }
 
 function multiply(n1, n2) {
-    return n1 * n2;
+    answer = roundAnswer(n1 * n2);
+    return answer;
 }
 
 function divide(n1, n2) {
     if(n2 === 0) return "MATH ERROR";
-    return n1/n2;
+    answer = roundAnswer(n1/n2);
+    return answer;
 }
 
 function calcExponent(n1,n2) {
-    return Math.pow(n1, n2);
+    answer = roundAnswer(Math.pow(n1, n2));
+    return answer;
+}
+
+function roundAnswer(answer) {
+    return Math.round(answer * 10000000)/10000000;
 }
 
 function operate(op, n1, n2) {
