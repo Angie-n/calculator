@@ -59,6 +59,7 @@ html {
 
 #answer {
     font-size: 40px;
+    overflow: auto;
 }
 
 #btns {
