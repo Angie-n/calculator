@@ -52,6 +52,8 @@ html {
 }
 
 #user-input {
+    display: block;
+    height: 18px;
     font-size: 18px;
     margin-top: 5px;
     color: rgb(41, 40, 40);

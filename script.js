@@ -5,7 +5,7 @@ let n2 = "";
 let op = "";
 let lastPressedIsNum = false;
 let lastPressedIsEquals = false;
-let errorOp;
+let extraOp;
 
 function add(n1, n2) {
     answer = roundAnswer(n1 + n2);
@@ -199,7 +199,7 @@ function sacDelete() {
         n2 = n2.substring(0, n2.length - 1);
         currentInput = n2;
     }
-    document.getElementById("answer").textContent = `${currentInput}`;
+    if(currentInput !== null) document.getElementById("answer").textContent = `${currentInput}`;
 }
 
 function sacClear() {
