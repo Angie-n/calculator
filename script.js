@@ -214,24 +214,76 @@ function sacClear() {
     document.getElementById("answer").textContent = "";
 }
 
-function storeAndCalc() {
+function storeAndCalc(btn) {
     checkForErrors();
-    if (this.className === "num-btns") sacNum(this);
-    else if (this.className === "operator-btns") sacOperator(this);
-    else if (this.id === "decimal-btn") {
+    if (btn.className === "num-btns") sacNum(btn);
+    else if (btn.className === "operator-btns") sacOperator(btn);
+    else if (btn.id === "decimal-btn") {
         sacDecimal();
     }
-    else if (this.id === "sign-btn") {
+    else if (btn.id === "sign-btn") {
         if(currentInput !== null && currentInput.length > 0 && !lastPressedIsEquals) {
             sacSign();
         }
     }
-    else if (this.id === "delete-btn") {
+    else if (btn.id === "delete-btn") {
         sacDelete();
     }
     else sacClear();
 }
 
 document.querySelectorAll("button").forEach(node => {
-    node.addEventListener("click", storeAndCalc);
+    node.addEventListener("click", () => {
+        storeAndCalc(node);
+    });
+});
+
+document.addEventListener("keydown", event => {
+    let key = event.key;
+    switch(key) {
+        case "c": 
+        event.id = "all-clear-btn";
+        break;
+        case "Backspace": 
+        event.id = "delete-btn";
+        break;
+        case "^":
+        event.className = "operator-btns";
+        event.id = "exponent-btn";
+        break;
+        case "+":
+        event.className = "operator-btns";
+        event.id = "add-btn";
+        break;
+        case "-":
+        event.className = "operator-btns";
+        event.id = "subtract-btn";
+        break;
+        case "*":
+        event.className = "operator-btns";
+        event.id = "multiply-btn";
+        break;
+        case "/":
+        event.className = "operator-btns";
+        event.id = "divide-btn";
+        break;
+        case "=":
+        event.className = "operator-btns";
+        event.id = "evaluate-btn";
+        case "Enter":
+        event.className = "operator-btns";
+        event.id = "evaluate-btn";
+        break;
+        case ".":
+        event.id = "decimal-btn";
+        break;
+        case "s":
+        event.id = "sign-btn";
+        break;
+    }
+    if(parseInt(event.key) === parseInt(event.key) && event.keyCode >= 48 && event.keyCode <= 57) {
+        event.className = "num-btns";
+    }
+    event.textContent = event.key
+    if(event.className !== undefined || event.id !== undefined) storeAndCalc(event);
 });
