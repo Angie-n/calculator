@@ -112,3 +112,42 @@ button:hover {
     background-color:  rgb(58, 78, 190);
 }
 
+@media screen and (max-width: 480px) {
+    #calculator-container {
+        width: 95%;
+    }
+    button {
+        width: 18vw;
+    }
+    #display-window {
+        width: 88%;
+    }
+    #user-input {
+        font-size: 5vw;
+    }
+    #answer {
+        font-size: 9vw;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    #calculator-container {
+        width: 250px;
+        height: 460px;
+    }
+    button {
+        width: 50px;
+        height: 40px;
+        font-size: 15px;
+    }
+    #display-window {
+        width: 88%;
+    }
+    #user-input {
+        font-size: 15px;
+    }
+    #answer {
+        font-size: 27px;
+    }
+}
+
