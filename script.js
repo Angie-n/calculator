@@ -123,6 +123,7 @@ function sacOperator(event) {
         }
         else {
             answer = operate(op, n1, n2);
+            if(answer !== answer) answer = "SYNTAX ERROR";
             display(op, n1, n2);
             n1 = answer;
             currentInput = `${n1}`;
@@ -222,7 +223,7 @@ function storeAndCalc(btn) {
         sacDecimal();
     }
     else if (btn.id === "sign-btn") {
-        if(currentInput !== null && currentInput.length > 0 && !lastPressedIsEquals) {
+        if(currentInput !== null && !lastPressedIsEquals) {
             sacSign();
         }
     }
